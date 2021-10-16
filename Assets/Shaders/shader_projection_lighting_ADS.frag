@@ -48,7 +48,7 @@ void main()
 
 	vec2 uv = textureCoordinate;
 
-	vec3 col = 0.5 + 0.5*cos(((time)+uv.xyx+vec3(0,2,4)));
+	vec3 col = 0.5 + 0.5*cos(((time/1000)+uv.xyx+vec3(0,2,4)));
 	//uv.y = 0.5+0.5*cos((time + uv.y));
 
 	//vec4 textureColour = texture(aTex, uv);

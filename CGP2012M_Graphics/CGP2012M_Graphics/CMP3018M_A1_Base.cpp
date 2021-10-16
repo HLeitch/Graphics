@@ -245,6 +245,7 @@ int main(int argc, char *argv[]) {
 		currentTime = SDL_GetTicks();
 		elapsedTime = currentTime - lastTime;
 		lastTime = currentTime;
+		
 
 		//update camera matrix
 		//camera only moves side to side, formards and backwards (no rotation)
