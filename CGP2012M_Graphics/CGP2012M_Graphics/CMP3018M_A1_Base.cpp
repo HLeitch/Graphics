@@ -161,7 +161,7 @@ int main(int argc, char *argv[]) {
 	//background texture
 	texArray[0].load("..//..//Assets//Textures//chequer.jpg");
 	texArray[0].setBuffers();
-	texArray[1].load("..//..//Assets//Textures//DeathStar.png");
+	texArray[1].load("..//..//Assets//Textures//Silver.jpg");
 	texArray[1].setBuffers();
 
 	errorLabel = 2;
