@@ -44,8 +44,15 @@ void main()
 	float sp = pow(max(dot(viewDirection, reflectDirection), 0.0), 8);
     vec3 specular = specularStrength * sp * lightColour; 
 
-	
-vec4 textureColour = texture(aTex, textureCoordinate);
+
+
+	vec2 uv = textureCoordinate;
+
+	vec3 col = 0.5 + 0.5*cos(((time)+uv.xyx+vec3(0,2,4)));
+	//uv.y = 0.5+0.5*cos((time + uv.y));
+
+	//vec4 textureColour = texture(aTex, uv);
+	vec4 textureColour = vec4(col,1.0);
 
 	//apply no lighting, ambient and diffuse components with colour contributed by texture
 	//vertColour = (textureColour);
