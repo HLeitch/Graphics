@@ -45,18 +45,14 @@ void main()
     vec3 specular = specularStrength * sp * lightColour; 
 
 	
-	vec4 textureColour = texture(aTex, textureCoordinate);
-	vec2 uv = textureCoordinate
-	//vec4 textureColour = texture(aTex, uv);
-	
-	
+vec4 textureColour = texture(aTex, textureCoordinate);
+
 	//apply no lighting, ambient and diffuse components with colour contributed by texture
-	vertColour = (textureColour);
+	//vertColour = (textureColour);
 	//vertColour = textureColour;
 	//vertColour = (vec4((lightColour), 1.0) * textureColour);
 	//vertColour = (vec4((ambient),1.0) * textureColour);
 	//vertColour = (vec4((ambient+diffuse),1.0) * textureColour);
-	//vertColour = (vec4((ambient+diffuse+specular),1.0) * textureColour);
-	
+	vertColour = (vec4((ambient+diffuse+specular),1.0) * textureColour);
 	
 }
