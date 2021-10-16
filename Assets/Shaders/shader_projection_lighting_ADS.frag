@@ -12,6 +12,8 @@ uniform sampler2D aTex;		//uniform holding texture info from main programme
 
 
 
+
+
 void main()
 {
 	//ambient component
