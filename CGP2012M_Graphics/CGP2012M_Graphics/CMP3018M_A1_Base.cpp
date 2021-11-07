@@ -160,7 +160,7 @@ int main(int argc, char *argv[]) {
 	//create textures - space for 4, but only using 2
 	Texture texArray[4];
 	//background texture
-	texArray[0].load("..//..//Assets//Textures//terrain.png ");
+	texArray[0].load("..//..//Assets//Textures//terrain.png");
 	texArray[0].setBuffers();
 	texArray[1].load("..//..//Assets//Textures//deathstar.png");
 	texArray[1].setBuffers();
