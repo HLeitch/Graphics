@@ -116,7 +116,7 @@ void main()
 
 	
 
-	vec4 textureColour = texture(aTex, textureCoordinate)+vec4((step(0.00, position.y+(sin(time/2000.0)))*vec3(1.0,1.0,1.0)),1.0);
+	vec4 textureColour = texture(aTex, uv)+vec4((step(0.00, position.y+(sin(time/1000.0)))*vec4(1.0,1.0,1.0,1.0)));
 	
 	
 
