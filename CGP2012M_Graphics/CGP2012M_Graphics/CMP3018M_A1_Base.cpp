@@ -166,6 +166,9 @@ int main(int argc, char *argv[]) {
 	texArray[1].setBuffers();
 	texArray[2].load("..//..//Assets//Textures//earthmap1k.png");
 	texArray[2].setBuffers();
+	//HLeitch
+	texArray[3].load("..//..//Assets//Textures//chequer.jpg");
+	texArray[3].setBuffers();
 
 
 	errorLabel = 2;
@@ -349,10 +352,15 @@ int main(int argc, char *argv[]) {
 		glUniform1i(eLocation, 2);
 
 		//render
+		//Set textures to be used with the shader. This has 3 currently but can be expanded
 		glActiveTexture(GL_TEXTURE1);
 		glBindTexture(GL_TEXTURE_2D, texArray[1].texture);
 		glActiveTexture(GL_TEXTURE2);
 		glBindTexture(GL_TEXTURE_2D, texArray[2].texture);
+		//HLEITCH
+		glActiveTexture(GL_TEXTURE3);
+		glBindTexture(GL_TEXTURE_2D, texArray[3].texture);
+		
 
 		models[0].render();
 		errorLabel = 7;

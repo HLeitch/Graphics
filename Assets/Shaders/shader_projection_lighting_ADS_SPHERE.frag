@@ -10,7 +10,9 @@ in float time;
 in vec3 position;
 
 uniform sampler2D aTex;		//uniform holding texture info from main programme
-uniform sampler2D aTex2;	
+uniform sampler2D aTex2;
+uniform sampler2D aTex3;
+
 
 // in: vec2 out:random float value
 //'fract()' returns only the fractional part of a value.
@@ -111,11 +113,18 @@ void main()
 	
 	//mix between two textures
 	//vec4 temp = mix(texture(aTex,textureCoordinate), texture(aTex2,textureCoordinate), abs(sin(ovn*abs(sin(time/10000.0))))*2);
-	vec4 temp = mix(vec4(0.0,0.0,0.0,0.0), texture(aTex2,textureCoordinate), abs(sin(ovn*abs(sin(time/10000.0))))*2);
+	//vec4 temp = mix(vec4(0.0,0.0,0.0,0.0), texture(aTex2,textureCoordinate), abs(sin(ovn*abs(sin(time/10000.0))))*2);
 	//
-	vertColour = vec4(temp);
+
+
+	//mix between two texture by a 3rd texture
+	vec4 dissolveTexture = texture(aTex3, textureCoordinate);
+
+	//vec4 temp = mix(texture(aTex,textureCoordinate), texture(aTex2,textureCoordinate), step(0.8,dissolveTexture.r));
+
+	//vertColour = vec4(temp);
 	
-	//vertColour = vec4((ambient+diffuse+specular),1.0) * textureColour;
+	vertColour = vec4((ambient+diffuse+specular),1.0) * dissolveTexture;
 	//vertColour = vec4((ambient+diffuse+specular)*ovn,1.0);
 	//vertColour = vec4(ovn*vec3(0.8,0.5,0.1)*(abs(sin(time/1000.0))+0.5), 1.0);
 	
