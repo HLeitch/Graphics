@@ -120,11 +120,11 @@ void main()
 	//mix between two texture by a 3rd texture
 	vec4 dissolveTexture = texture(aTex3, textureCoordinate);
 
-	//vec4 temp = mix(texture(aTex,textureCoordinate), texture(aTex2,textureCoordinate), step(0.8,dissolveTexture.r));
+	vec4 temp = mix(texture(aTex,textureCoordinate), texture(aTex2,textureCoordinate), step(0.5,dissolveTexture.r));
 
-	//vertColour = vec4(temp);
+	vertColour = vec4(temp);
 	
-	vertColour = vec4((ambient+diffuse+specular),1.0) * dissolveTexture;
+	//vertColour = vec4((ambient+diffuse+specular),1.0) * textureColour;
 	//vertColour = vec4((ambient+diffuse+specular)*ovn,1.0);
 	//vertColour = vec4(ovn*vec3(0.8,0.5,0.1)*(abs(sin(time/1000.0))+0.5), 1.0);
 	

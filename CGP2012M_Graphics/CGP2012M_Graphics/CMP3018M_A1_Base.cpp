@@ -167,7 +167,7 @@ int main(int argc, char *argv[]) {
 	texArray[2].load("..//..//Assets//Textures//earthmap1k.png");
 	texArray[2].setBuffers();
 	//HLeitch
-	texArray[3].load("..//..//Assets//Textures//chequer.jpg");
+	texArray[3].load("..//..//Assets//Textures//triangles.jpg");
 	texArray[3].setBuffers();
 
 
@@ -350,6 +350,10 @@ int main(int argc, char *argv[]) {
 		glUniform1i(dsLocation, 1);
 		eLocation = glGetUniformLocation(models[0].shaderProgram, "aTex2");
 		glUniform1i(eLocation, 2);
+
+		//HLEITCH
+		srLocation = glGetUniformLocation(models[0].shaderProgram,"aTex3");
+		glUniform1i(srLocation, 3);
 
 		//render
 		//Set textures to be used with the shader. This has 3 currently but can be expanded
