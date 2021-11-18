@@ -29,8 +29,16 @@ uniform float uTime;
 
 void main()
 {
+	//float posz = Position.z;
+	//posz += sin((time+Position.y)/1000);
+	//vec3 pos = Position;
+
+	//vec3 extendedNormals = Position + (normals*5*sin((time+Position.y)/1000));
+
 
 	// vertex positions
+
+	//Changed to change Position.z to posz
 	gl_Position = uProjection * uView * uModel * vec4(Position.x, Position.y, Position.z, 1.0); 						
 	textureCoordinate = vec2(texCoord.x, 1 - texCoord.y);
 	
@@ -46,6 +54,8 @@ void main()
 	//calculate a 'normal matrix' and multiply by the unmodified normal
 	normals = mat3(uNormalMatrix) * normal;
 	
+
+
 	
 	lightColour = uLightColour;
 	lightPosition = uLightPosition;

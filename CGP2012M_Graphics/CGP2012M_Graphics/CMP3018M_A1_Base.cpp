@@ -167,7 +167,7 @@ int main(int argc, char *argv[]) {
 	texArray[2].load("..//..//Assets//Textures//earthmap1k.png");
 	texArray[2].setBuffers();
 	//HLeitch
-	texArray[3].load("..//..//Assets//Textures//trianglesFlatter.jpg");
+	texArray[3].load("..//..//Assets//Textures//orderedtiledtriangles.jpg");
 	texArray[3].setBuffers();
 
 

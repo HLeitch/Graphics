@@ -109,9 +109,9 @@ void main()
 	ovn += (cnoise(uv ));
     ovn += (cnoise(uv   *4.0 )*0.5);
     ovn += (cnoise(uv  *16.0 )*0.25);
-    //ovn += (cnoise(uv  *64.0 )*0.125);
-    //ovn += (cnoise(uv  *256.0 )*0.0625);
-   // ovn += (cnoise(uv   *1024.0 )*0.03125);
+    ovn += (cnoise(uv  *64.0 )*0.125);
+    ovn += (cnoise(uv  *256.0 )*0.0625);
+    ovn += (cnoise(uv   *1024.0 )*0.03125);
 	
 	//mix between two textures
 	//vec4 temp = mix(texture(aTex,textureCoordinate), texture(aTex2,textureCoordinate), abs(sin(ovn*abs(sin(time/10000.0))))*2);
@@ -123,9 +123,9 @@ void main()
 	//Change contrast on texture to increase/decrease gap between triangles.
 
 	vec4 dissolveTexture = texture(aTex3, textureCoordinate);
-	float scaledSinTime = sin(uv.y*0.4 -((time) /2000));
+	float scaledSinTime = cos(uv.y*0.3 -((time) /5000))+0.5;
 
-	float dissolveFactor = scaledSinTime + (0.06*ovn);
+	float dissolveFactor = scaledSinTime + (0.1*ovn);
 
 	//vec4 temp = mix(texture(aTex,textureCoordinate), texture(aTex2,textureCoordinate), step(dissolveFactor,dissolveTexture.r));
 
@@ -133,16 +133,18 @@ void main()
 	vec4 temp = mix(texture(aTex2,textureCoordinate), vec4(0.0,0.0,0.0,0.0), step(dissolveFactor,dissolveTexture.r));
 
 	//add glow/burn effect
-	if(dissolveFactor > dissolveTexture.r - 0.05 && dissolveFactor < dissolveTexture.r+0.05)
+	if(dissolveFactor > dissolveTexture.r - 0.02 && dissolveFactor < dissolveTexture.r+0.02)
 	{
 	
-		temp += vec4(0.4,0.2,0.1,0.1);
+		temp += vec4(0.1,0.0,0.0,0.);
 
 		//adds more colour when closer to the edge
-		if(dissolveFactor > dissolveTexture.r - 0.03 && dissolveFactor < dissolveTexture.r+0.03)
+		if(dissolveFactor > dissolveTexture.r - 0.01 && dissolveFactor < dissolveTexture.r+0.01)
 		{
-			temp += vec4(0.5,0.4,0.0,0.1);
+			temp += vec4(0.9,0.1,0.0,0.1);
 		}
+		
+
 	}
 
 	//Make transparent areas see through
